@@ -51,6 +51,9 @@
             }
         }(window, document))
     </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>
 </head>
 <style>
     * {
@@ -154,21 +157,21 @@
             申请成功，请在 48 小时内确认信息，逾期将视为主动放弃众测资格
         </p>
         <p class="label">申请理由</p>
-        <textarea id="applyMessage">Mavic Air 相比 Mavic Pro 更加圆润，更有层次感，据悉它参考了空气动力学，飞行时可降低风阻。 颜色上，Mavic Air 首发有黑、白、红三色可选上，Mavic Air 首发有黑上，Mavic Air 首发有黑上，Mavic Air 首发有黑上，Mavic Air 首发有黑</textarea>
+        <textarea id="applyMessage">Mavic Air 相比 Mavic Pro 更加圆润，更有层次感，据悉它参考了空气动力学，飞行时可降低风阻。 颜色上，Mavic Air 首发有黑、白、红三色可选上，Mavic Air 首发有黑上，Mavic Air 首发有黑上，Mavic
+            Air 首发有黑上，Mavic Air 首发有黑</textarea>
+
+        <textarea placeholder="Type, paste, cut text here...">PRELOADED TEXT. This javascript should now add better support for IOS browsers and Android browsers.</textarea>
+        <textarea placeholder="Type, paste, cut text here..."></textarea>
     </div>
 </body>
 <script>
     window.onload = function () {
-        var tx = document.getElementsByTagName('textarea');
-        for (var i = 0; i < tx.length; i++) {
-            tx[i].setAttribute('style', 'height:' + (tx[i].scrollHeight) + 'px;overflow-y:hidden;');
-            tx[i].addEventListener("input", OnInput, false);
-        }
-
-        function OnInput() {
+        $('textarea').each(function () {
+            this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+        }).on('input', function () {
             this.style.height = 'auto';
             this.style.height = (this.scrollHeight) + 'px';
-        }
+        });
     }
 </script>
 
