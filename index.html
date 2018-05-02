@@ -72,6 +72,11 @@
         list-style: none;
     }
 
+    input {
+        border: 0px;
+        outline: none;
+    }
+
     .container {
         position: relative;
         width: 100%;
@@ -80,6 +85,9 @@
         border: 1px solid transparent;
         font-size: 14px;
         margin-top: 30px;
+        background: #FFFFFF;
+        height: auto;
+
     }
 
     .container .label {
@@ -88,7 +96,7 @@
         margin-bottom: 10px;
     }
 
-    /* 文中商品 */
+    /* 头部信息 */
 
     .container .aboutGoods .goods {
         height: 114px;
@@ -129,16 +137,29 @@
         color: #C6C6C6;
         margin-bottom: 30px;
     }
-
+    /* 编辑信息区域 */
     #applyMessage {
         width: 100%;
         font-size: 16px;
         color: #0F2540;
+        margin-bottom: 16px;
     }
+
+    .line {
+        border: 1px solid transparent;
+        border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='2px'%3E%3Crect fill='#EFEFEF' width='100%25' height='50%25'/%3E%3C/svg%3E") 2 2 stretch;
+        margin-bottom: 30px;
+    }
+    .inputClass{
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
 </style>
 
 <body>
     <div class="container">
+        <!-- 头部产品信息start -->
         <div class="aboutGoods">
             <div class="goods">
                 <img src="./image/goods.png">
@@ -150,15 +171,33 @@
                 </div>
             </div>
         </div>
+        <!-- 头部产品信息end -->
+
+        <!-- 提示start -->
         <p class="notice">
             申请成功，请在 48 小时内确认信息，逾期将视为主动放弃众测资格
         </p>
+        <!-- 提示end -->
+
+        <!-- 编辑确认区域start -->
         <p class="label">申请理由</p>
-        <textarea id="applyMessage">Mavic Air 相比 Mavic Pro 更加圆润，更有层次感，据悉它参考了空气动力学，飞行时可降低风阻。 颜色上，Mavic Air 首发有黑、白、红三色可选上，Mavic Air 首发有黑上，Mavic Air 首发有黑上，Mavic Air 首发有黑上，Mavic Air 首发有黑</textarea>
+        <textarea id="applyMessage">Mavic Air 相比 Mavic Pro 更加圆润，更有层次感，据悉它参考了空气动力学，飞行时可降低风阻。 颜色上，Mavic Air 首发有黑、白、红三色可选</textarea>
+        <div class="line"></div>
+        <p class="label">收货人姓名</p>
+        <input class='inputClass' type="text" placeholder="请填写收件人姓名" value="莎啦啦">
+        <p class="label" >收货地址</p>
+        <input class='inputClass' style="width:100%" type="text" placeholder="请填写收货地址" value="广东省深圳市南山区蛇口网谷万海大厦 C#401dasdasd">
+        <p class="label">邮政编码</p>
+        <input class='inputClass' type="number" placeholder="请填写收货地址" value="518000">
+        <p class="label">手机号码</p>
+        <input class='inputClass' type="number" placeholder="请填写收货地址" value="12345678901">
+
+        <!-- 编辑确认区域end -->
     </div>
 </body>
 <script>
     window.onload = function () {
+        //textare高度自适应
         var tx = document.getElementsByTagName('textarea');
         for (var i = 0; i < tx.length; i++) {
             tx[i].setAttribute('style', 'height:' + (tx[i].scrollHeight) + 'px;overflow-y:hidden;');
