@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                } else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect .013333rem supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.013333rem solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+    </script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        outline: none;
+    }
+
+    i {
+        font-style: normal
+    }
+
+    :focus {
+        outline: 0;
+    }
+
+    ul,
+    ol {
+        list-style: none;
+    }
+
+    .container {
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 20px;
+        border: 1px solid transparent;
+        font-size: 14px;
+    }
+
+    /* 顶部导航栏 */
+
+    .topNav {
+        font-size: 18px;
+        /* margin-top: 35px; */
+        position: fixed;
+        top: 0;
+        z-index: 99;
+        background-color: #fff;
+    }
+
+    .navList {
+        list-style-type: none;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 0;
+        overflow: auto;
+        /* height: 25px; */
+        height: 60px;
+
+    }
+
+    .navList li {
+        flex: 1 0 auto;
+        color: white;
+        margin-right: 22px;
+        color: #BAC3CE;
+    }
+
+    .navList li.navSelect {
+        color: black;
+    }
+
+    /* 展示列表 */
+
+    .main {
+        margin-top: 90px;
+    }
+
+    #testList {
+        display: block;
+    }
+
+    .main .testList li {
+        position: relative;
+        width: 100%;
+        background: #FFFFFF;
+        box-shadow: 0 0 30px 0 rgba(227, 227, 227, 0.80);
+        border-radius: 6px;
+        margin-bottom: 20px;
+        clear: both;
+    }
+
+    .main .testList .testItem {
+        height: 114px;
+        background: #FFFFFF;
+        border-radius: 6px;
+        padding: 12px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .main .testList .testItem img {
+        width: 135px;
+        height: 90px;
+        border-radius: 8px;
+        margin-right: 16px;
+    }
+
+    .testList .testItem .testInfo {
+        width: 158px;
+        padding: 6px 0;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .testList .testItem .testInfo .testName {
+        width: 158px;
+        font-size: 16px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .testList .testItem .testInfo .testStatus {
+        width: 158px;
+        font-size: 13px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        color: #C6C6C6;
+    }
+
+    .testList .btn {
+        padding: 0 12px;
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+        height: 50px;
+    }
+
+    .testList .btn .examine {
+        border: 1px solid #979797;
+        display: inline-block;
+        background: #E9EEF4;
+        border-radius: 100px;
+        box-sizing: border-box;
+        padding: 11px 18px;
+        width: 122px;
+        height: 36px;
+        color: #A6B1BF;
+        line-height: 14px;
+        font-size: 14px;
+        margin-right: 20px;
+    }
+
+    .testList .btn .affirm {
+        display: inline-block;
+        background-image: linear-gradient(-180deg, #9ADAFF 0%, #61B3FF 100%);
+        box-shadow: 0 0 30px 0 rgba(97, 179, 255, 0.30), 0 20px 31px 0 rgba(0, 0, 0, 0.13);
+        border-radius: 100px;
+        color: #fff;
+        box-sizing: border-box;
+        height: 38px;
+        padding: 11px 22px;
+        border: 1px solid #9ADAFF;
+        line-height: 16px;
+    }
+
+    .testList .btn .pastDue {
+        display: inline-block;
+        color: #B9B9B9;
+        background: #EFEFEF;
+        border-radius: 100px;
+        padding: 11px 22px;
+        box-sizing: border-box;
+        height: 38px;
+        border: 1px solid #EFEFEF;
+        line-height: 16px;
+    }
+
+    .testList .btn .submitTest {
+        display: inline-block;
+        background-image: linear-gradient(-180deg, #9ADAFF 0%, #61B3FF 100%);
+        box-shadow: 0 0 30px 0 rgba(97, 179, 255, 0.30), 0 20px 31px 0 rgba(0, 0, 0, 0.13);
+        border-radius: 100px;
+        color: #fff;
+        box-sizing: border-box;
+        height: 38px;
+        padding: 11px 22px;
+        border: 1px solid #9ADAFF;
+        line-height: 16px;
+    }
+
+    /* 无数据样式 */
+
+    #nullData {
+        display: none;
+    }
+
+    .nullData .nullDataImg {
+        display: block;
+        width: 200px;
+        height: 232px;
+        margin: 0 auto;
+        margin-top: 120px;
+        margin-bottom: 30px;
+    }
+
+    .nullData p:nth-child(2) {
+        font-size: 16px;
+        color: #435771;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+
+    .nullData p:nth-child(3) {
+        font-size: 13px;
+        color: #C6C6C6;
+        text-align: center;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <!-- 导航栏start -->
+        <div class="topNav">
+            <ul class="navList" id="navList">
+                <li class="navSelect">全部</li>
+                <li>申请中</li>
+                <li>申请失败</li>
+                <li>申请成功</li>
+                <li>众测体验</li>
+            </ul>
+        </div>
+        <!-- 导航栏end -->
+
+        <!-- 展示区域start -->
+        <div class="main">
+            <ul class="testList" id="testList">
+                <li>
+                    <div class="testItem">
+                        <img src="./image/goods.png">
+                        <div class="testInfo">
+                            <p class="testName">Misfit SHINE 新世界的复古手表</p>
+                            <p class="testStatus">申请失败</p>
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <div class="examine">查看申请信息</div>
+                        <div class="affirm">确认</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="testItem">
+                        <img src="./image/goods.png">
+                        <div class="testInfo">
+                            <p class="testName">Misfit SHINE 新世界的复古手表asdasdasdasd</p>
+                            <p class="testStatus">申请成功，请在 48 小时内确认信息</p>
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <div class="examine">查看申请信息</div>
+                        <div class="pastDue">已过期</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="testItem">
+                        <img src="./image/goods.png">
+                        <div class="testInfo">
+                            <p class="testName">Misfit SHINE 新世界的复古手表asdasdasdasd</p>
+                            <p class="testStatus">体验中</p>
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <div class="examine">查看申请信息</div>
+                        <div class="submitTest">提交众测体验</div>
+                    </div>
+                </li>
+
+
+                <li>
+                    <div class="testItem">
+                        <img src="./image/goods.png">
+                        <div class="testInfo">
+                            <p class="testName">Misfit SHINE 新世界的复古手表asdasdasdasd</p>
+                            <p class="testStatus">体验中</p>
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <div class="examine">查看申请信息</div>
+                        <div class="submitTest">提交众测体验</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="testItem">
+                        <img src="./image/goods.png">
+                        <div class="testInfo">
+                            <p class="testName">Misfit SHINE 新世界的复古手表asdasdasdasd</p>
+                            <p class="testStatus">体验中</p>
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <div class="examine">查看申请信息</div>
+                        <div class="submitTest">提交众测体验</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="testItem">
+                        <img src="./image/goods.png">
+                        <div class="testInfo">
+                            <p class="testName">Misfit SHINE 新世界的复古手表asdasdasdasd</p>
+                            <p class="testStatus">体验中</p>
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <div class="examine">查看申请信息</div>
+                        <div class="submitTest">提交众测体验</div>
+                    </div>
+                </li>
+            </ul>
+            <div class="nullData" id="nullData">
+                <img class="nullDataImg" src="./image/Artwork.png">
+                <p>这里什么都没有</p>
+                <p>去众测首页开始产品体验之旅</p>
+            </div>
+        </div>
+        <!-- 展示区域end -->
+    </div>
+
+</body>
+<script>
+    window.onload = function () {
+        function showAndHide(showId,hideId){
+            document.getElementById(showId).style.display ='block'
+            document.getElementById(hideId).style.display ='none'
+        }
+
+        document.getElementById('navList').addEventListener('click', function (e) {
+            if (e.target.innerHTML == '申请中') {
+                showAndHide('nullData','testList')
+            } else {
+                showAndHide('testList','nullData')
+            }
+        })
+    }
+</script>
+
+</html>

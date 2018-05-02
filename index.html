@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" name="viewport" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
@@ -76,49 +76,100 @@
         position: relative;
         width: 100%;
         box-sizing: border-box;
-        height: 300px;
         padding: 0 20px;
         border: 1px solid transparent;
         font-size: 14px;
+        margin-top: 30px;
     }
 
-    .topNav {
-        font-size: 18px;
-        margin-top: 37px;
+    .container .label {
+        font-size: 16px;
+        color: #B9B9B9;
+        margin-bottom: 10px;
     }
 
-    .navList {
-        list-style-type: none;
+    /* 文中商品 */
+
+    .container .aboutGoods .goods {
+        height: 114px;
+        background: #FFFFFF;
+        box-shadow: 0 0 30px 0 rgba(227, 227, 227, 0.80);
+        border-radius: 6px;
+        margin-bottom: 20px;
+        padding: 12px;
+        box-sizing: border-box;
         display: flex;
-        flex-wrap: nowrap;
         justify-content: space-between;
-        padding: 0;
-        overflow: auto;
-        height: 25px;
     }
 
-    .navList li {
-        flex: 1 0 auto;
-        color: white;
-        margin-right: 24px;
-        color: black;
+    .container .aboutGoods .goods img {
+        width: 135px;
+        height: 90px;
+        border-radius: 8px;
+        margin-right: 16px;
+    }
+
+    .container .aboutGoods .goods .info p {
+        width: 158px;
+        font-size: 16px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+
+    .container .aboutGoods .goods .info span {
+        font-size: 13px;
+        color: #C6C6C6;
+    }
+
+    .container .notice {
+        font-size: 13px;
+        color: #C6C6C6;
+        margin-bottom: 30px;
+    }
+
+    #applyMessage {
+        width: 100%;
+        font-size: 16px;
+        color: #0F2540;
     }
 </style>
 
 <body>
-
     <div class="container">
-        <div class="topNav">
-            <ul class="navList">
-                <li>全部</li>
-                <li>申请中</li>
-                <li>申请失败</li>
-                <li>申请成功</li>
-                <li>众测体验</li>
-            </ul>
+        <div class="aboutGoods">
+            <div class="goods">
+                <img src="./image/goods.png">
+                <div class="info">
+                    <p>Misfit SHINE 新世界的复古手表</p>
+                    <span>距离确认信息还剩:</span>
+                    <br>
+                    <span>01 时 22 分</span>
+                </div>
+            </div>
         </div>
+        <p class="notice">
+            申请成功，请在 48 小时内确认信息，逾期将视为主动放弃众测资格
+        </p>
+        <p class="label">申请理由</p>
+        <textarea id="applyMessage">Mavic Air 相比 Mavic Pro 更加圆润，更有层次感，据悉它参考了空气动力学，飞行时可降低风阻。 颜色上，Mavic Air 首发有黑、白、红三色可选上，Mavic Air 首发有黑上，Mavic Air 首发有黑上，Mavic Air 首发有黑上，Mavic Air 首发有黑</textarea>
     </div>
-    
 </body>
+<script>
+    window.onload = function () {
+        var tx = document.getElementsByTagName('textarea');
+        for (var i = 0; i < tx.length; i++) {
+            tx[i].setAttribute('style', 'height:' + (tx[i].scrollHeight) + 'px;overflow-y:hidden;');
+            tx[i].addEventListener("input", OnInput, false);
+        }
+
+        function OnInput() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        }
+    }
+</script>
 
 </html>
