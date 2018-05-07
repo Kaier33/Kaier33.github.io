@@ -1,175 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=750,maximum-scale=1,user-scalable=no"><title>申请成功名单</title><link href=./static/css/index.1688503574a9ae4c7f1664088d64b9aa.css rel=stylesheet><link href=./static/css/verifyApplyInfo.778e07ea0ba42c767370b3bca617be6d.css rel=stylesheet><link href=./static/css/list.ee2131fbdb487e5d08d77ddc5dee15e0.css rel=stylesheet><link href=./static/css/applySuccessList.474dc995d66f232da4d7fce2093e48c1.css rel=stylesheet><link href=./static/css/myTestDetail.77378784d72d5d922bd8e53fa275a8cb.css rel=stylesheet><link href=./static/css/applyForTest.4a2f0918f1f5e30f26a065e037aed326.css rel=stylesheet></head><style>* {
+    margin: 0;
+    padding: 0;
+  }
 
-<head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script>
-        (function flexible(window, document) {
-            var docEl = document.documentElement
-            var dpr = window.devicePixelRatio || 1
+  i {
+    font-style: normal;
+  }
 
-            // adjust body font size
-            function setBodyFontSize() {
-                if (document.body) {
-                    document.body.style.fontSize = (12 * dpr) + 'px'
-                } else {
-                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
-                }
-            }
-            setBodyFontSize();
-
-            // set 1rem = viewWidth / 10
-            function setRemUnit() {
-                var rem = docEl.clientWidth / 10
-                docEl.style.fontSize = rem + 'px'
-            }
-
-            setRemUnit()
-
-            // reset rem unit on page resize
-            window.addEventListener('resize', setRemUnit)
-            window.addEventListener('pageshow', function (e) {
-                if (e.persisted) {
-                    setRemUnit()
-                }
-            })
-
-            // detect .013333rem supports
-            if (dpr >= 2) {
-                var fakeBody = document.createElement('body')
-                var testElement = document.createElement('div')
-                testElement.style.border = '.013333rem solid transparent'
-                fakeBody.appendChild(testElement)
-                docEl.appendChild(fakeBody)
-                if (testElement.offsetHeight === 1) {
-                    docEl.classList.add('hairlines')
-                }
-                docEl.removeChild(fakeBody)
-            }
-        }(window, document))
-    </script>
-</head>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
+  ul,
+  ol {
+    list-style: none;
+  }
+  input {
+        border: 0px;
         outline: none;
-    }
+  }
 
-    i {
-        font-style: normal
-    }
+  :focus {
+    outline: 0;
+  }
 
-    :focus {
-        outline: 0;
-    }
-
-    ul,
-    ol {
-        list-style: none;
-    }
-
-    .container {
-        position: relative;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 0 20px;
-        border: 1px solid transparent;
-        font-size: 14px;
-        margin-top: 30px;
-    }
-
-    .container .label {
-        font-size: 16px;
-        color: #B9B9B9;
-        margin-bottom: 10px;
-    }
-
-    /* 文中商品 */
-
-    .container .aboutGoods .goods {
-        height: 114px;
-        background: #FFFFFF;
-        box-shadow: 0 0 30px 0 rgba(227, 227, 227, 0.80);
-        border-radius: 6px;
-        margin-bottom: 20px;
-        padding: 12px;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .container .aboutGoods .goods img {
-        width: 135px;
-        height: 90px;
-        border-radius: 8px;
-        margin-right: 16px;
-    }
-
-    .container .aboutGoods .goods .info p {
-        width: 158px;
-        font-size: 16px;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
-        overflow: hidden;
-        margin-bottom: 10px;
-    }
-
-    .container .aboutGoods .goods .info span {
-        font-size: 13px;
-        color: #C6C6C6;
-    }
-
-    .container .notice {
-        font-size: 13px;
-        color: #C6C6C6;
-        margin-bottom: 30px;
-    }
-
-    #applyMessage {
-        width: 100%;
-        font-size: 16px;
-        color: #0F2540;
-    }
-</style>
-
-<body>
-    <div class="container">
-        <div class="aboutGoods">
-            <div class="goods">
-                <img src="./image/goods.png">
-                <div class="info">
-                    <p>Misfit SHINE 新世界的复古手表</p>
-                    <span>距离确认信息还剩:</span>
-                    <br>
-                    <span>01 时 22 分</span>
-                </div>
-            </div>
-        </div>
-        <p class="notice">
-            申请成功，请在 48 小时内确认信息，逾期将视为主动放弃众测资格
-        </p>
-        <p class="label">申请理由</p>
-        <textarea id="applyMessage">Mavic Air 相比 Mavic Pro 更加圆润，更有层次感，据悉它参考了空气动力学，飞行时可降低风阻。 颜色上，Mavic Air 首发有黑、白、红三色可选上，Mavic Air 首发有黑上，Mavic Air 首发有黑上，Mavic Air 首发有黑上，Mavic Air 首发有黑</textarea>
-    </div>
-</body>
-<script>
-    window.onload = function () {
-        var tx = document.getElementsByTagName('textarea');
-        for (var i = 0; i < tx.length; i++) {
-            tx[i].setAttribute('style', 'height:' + (tx[i].scrollHeight) + 'px;overflow-y:hidden;');
-            tx[i].addEventListener("input", OnInput, false);
-        }
-
-        function OnInput() {
-            this.style.height = 'auto';
-            this.style.height = (this.scrollHeight) + 'px';
-        }
-    }
-</script>
-
-</html>
+  .clearfix:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+  }</style><body><div id=applySuccessList></div><script type=text/javascript src=./static/js/manifest.96d7be87501b086eacad.js></script><script type=text/javascript src=./static/js/vendor.b3fb6129f80a4625562f.js></script><script type=text/javascript src=./static/js/index.c4ae9370826d93911041.js></script><script type=text/javascript src=./static/js/verifyApplyInfo.c531c21c3429575820e3.js></script><script type=text/javascript src=./static/js/list.ec2e6a8d56204437aef4.js></script><script type=text/javascript src=./static/js/applySuccessList.cdd022d48fa1a830b689.js></script><script type=text/javascript src=./static/js/myTestDetail.1805b704b0c227e7e002.js></script><script type=text/javascript src=./static/js/applyForTest.996d418ec59270532f33.js></script></body></html>
