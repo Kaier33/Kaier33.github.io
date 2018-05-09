@@ -9,12 +9,159 @@
 
     ul,
     ol {
+<<<<<<< HEAD
       list-style: none;
     }
 
     :focus {
       outline: 0;
     }
+=======
+        list-style: none;
+    }
+
+    input {
+        border: 0px;
+        outline: none;
+    }
+
+    .container {
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 20px;
+        border: 1px solid transparent;
+        font-size: 14px;
+        margin-top: 30px;
+        background: #FFFFFF;
+        height: auto;
+
+    }
+
+    .container .label {
+        font-size: 16px;
+        color: #B9B9B9;
+        margin-bottom: 10px;
+    }
+
+    /* 头部信息 */
+
+    .container .aboutGoods .goods {
+        height: 114px;
+        background: #FFFFFF;
+        box-shadow: 0 0 30px 0 rgba(227, 227, 227, 0.80);
+        border-radius: 6px;
+        margin-bottom: 20px;
+        padding: 12px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .container .aboutGoods .goods img {
+        width: 135px;
+        height: 90px;
+        border-radius: 8px;
+        margin-right: 16px;
+    }
+
+    .container .aboutGoods .goods .info p {
+        width: 158px;
+        font-size: 16px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+
+    .container .aboutGoods .goods .info span {
+        font-size: 13px;
+        color: #C6C6C6;
+    }
+
+    .container .notice {
+        font-size: 13px;
+        color: #C6C6C6;
+        margin-bottom: 30px;
+    }
+
+    /* 编辑信息区域 */
+
+    #applyMessage {
+        width: 100%;
+        font-size: 16px;
+        color: #0F2540;
+        margin-bottom: 16px;
+        resize: none;
+    }
+    #addressMessage{
+        width: 100%;
+        font-size: 16px;
+        margin-bottom: 20px;
+        resize: none;
+    }
+
+    .line {
+        border: 1px solid transparent;
+        border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='2px'%3E%3Crect fill='#EFEFEF' width='100%25' height='50%25'/%3E%3C/svg%3E") 2 2 stretch;
+        margin-bottom: 30px;
+    }
+
+    .inputClass {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <!-- 头部产品信息start -->
+        <div class="aboutGoods">
+            <div class="goods">
+                <img src="./image/goods.png">
+                <div class="info">
+                    <p>Misfit SHINE 新世界的复古手表</p>
+                    <span>距离确认信息还剩:</span>
+                    <br>
+                    <span>01 时 22 分</span>
+                </div>
+            </div>
+        </div>
+        <!-- 头部产品信息end -->
+
+        <!-- 提示start -->
+        <p class="notice">
+            申请成功，请在 48 小时内确认信息，逾期将视为主动放弃众测资格
+        </p>
+        <!-- 提示end -->
+
+        <!-- 编辑确认区域start -->
+        <p class="label">申请理由</p>
+        <textarea id="applyMessage">Mavic Air 相比 Mavic Pro 更加圆润，更有层次感，据悉它参考了空气动力学，飞行时可降低风阻。 颜色上，Mavic Air 首发有黑、白、红三色可选</textarea>
+        <div class="line"></div>
+        <p class="label">收货人姓名</p>
+        <input class='inputClass' type="text" placeholder="请填写收件人姓名" value="莎啦啦">
+        <p class="label">收货地址</p>
+        <textarea id="addressMessage" placeholder="请填写收货地址">广东省深圳市南山区蛇口网谷万海大厦 C#401dasdasd</textarea>
+        <!-- <input class='inputClass' style="width:100%" type="text" placeholder="请填写收货地址" value="广东省深圳市南山区蛇口网谷万海大厦 C#401dasdasd"> -->
+        <p class="label">邮政编码</p>
+        <input class='inputClass' type="number" placeholder="请填写收货地址" value="518000">
+        <p class="label">手机号码</p>
+        <input class='inputClass' type="number" placeholder="请填写收货地址" value="12345678901">
+
+        <!-- 编辑确认区域end -->
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        //textare高度自适应
+        var tx = document.getElementsByTagName('textarea');
+        for (var i = 0; i < tx.length; i++) {
+            tx[i].setAttribute('style', 'height:' + (tx[i].scrollHeight) + 'px;overflow-y:hidden;');
+            tx[i].addEventListener("input", OnInput, false);
+        }
+>>>>>>> a217a30e463a74ee88408bd008113d0262eae0db
 
     .clearfix:after {
       display: block;
@@ -24,7 +171,11 @@
       height: 0;
     }
 
+<<<<<<< HEAD
     .top {
       width: 100%;
       top: 0;
     }</style><link href=./static/css/index.15aa41e3b86536633647616c26eccce2.css rel=stylesheet><link href=./static/css/testProductDetail.837961668c67050c90d59c8619f7822e.css rel=stylesheet><link href=./static/css/verifyApplyInfo.d18a36667d8a1854cb7271a074516a9c.css rel=stylesheet><link href=./static/css/verifyAddress.a4d3faa1961cab20f3a0ead5cad97a3f.css rel=stylesheet><link href=./static/css/testProduct.db65b254f076fae38e343907f864ec65.css rel=stylesheet><link href=./static/css/testExperience.b24b57ea29c6eef152c9e0be528b8547.css rel=stylesheet><link href=./static/css/list.ee2131fbdb487e5d08d77ddc5dee15e0.css rel=stylesheet><link href=./static/css/applySuccessList.474dc995d66f232da4d7fce2093e48c1.css rel=stylesheet><link href=./static/css/myTestDetail.1dd1c948948150150ac6f65305ef4c06.css rel=stylesheet><link href=./static/css/applyForTest.3d413ac316bdfb3e21853e01bc0245d4.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.5be49b8c133529330d98.js></script><script type=text/javascript src=./static/js/vendor.b3fb6129f80a4625562f.js></script><script type=text/javascript src=./static/js/index.344942336eec79deda66.js></script><script type=text/javascript src=./static/js/testProductDetail.700e3ac62827305e960e.js></script><script type=text/javascript src=./static/js/verifyApplyInfo.faf0a4cf5a2a3f18b8cb.js></script><script type=text/javascript src=./static/js/verifyAddress.b85b8b365f3591405f2e.js></script><script type=text/javascript src=./static/js/testProduct.33350b88fe65c65a0c32.js></script><script type=text/javascript src=./static/js/testExperience.947cd12e149b70304363.js></script><script type=text/javascript src=./static/js/list.d73129c609e01d9af173.js></script><script type=text/javascript src=./static/js/applySuccessList.29405d8467109adae153.js></script><script type=text/javascript src=./static/js/myTestDetail.29263402adc2c6942d5b.js></script><script type=text/javascript src=./static/js/applyForTest.89f4a53ff5214d1b6dfe.js></script></body><script></script></html>
+=======
+</html>
+>>>>>>> a217a30e463a74ee88408bd008113d0262eae0db
