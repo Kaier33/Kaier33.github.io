@@ -1,1 +1,1 @@
-[myblog](www.kaier33.top)
+www.kaier33.top
