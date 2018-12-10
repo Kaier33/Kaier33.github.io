@@ -1,2 +1,2 @@
 [kaier33.top](https://kaier33.top)  
-[testPage](https://kaier33.top/testGithubPages)
+[testPage](KaierChou.github.io/testPage)
