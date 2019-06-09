@@ -51,12 +51,26 @@ export default class Toggle extends PureComponent {
       this.previouslyChecked = !!nextProps.checked;
     }
   }
+  componentDidMount() {
+    if (this.input.checked) {
+      document.getElementById('mask').style.background = 'transparent'
+    } else {
+      document.getElementById('mask').style.background = 'linear-gradient(-180deg, rgba(255, 255, 255, .1) 0, #fff 100%)'
+    }
+  }
 
   handleClick(event) {
     const checkbox = this.input;
     this.previouslyChecked = checkbox.checked;
     if (event.target !== checkbox && !this.moved) {
       event.preventDefault();
+      if (checkbox.checked) {
+        // console.log('开灯')
+        document.getElementById('mask').style.background = 'linear-gradient(-180deg, rgba(255, 255, 255, .1) 0, #fff 100%)'
+      } else {
+        // console.log('关灯')
+        document.getElementById('mask').style.background = 'transparent'
+      }
       checkbox.focus();
       checkbox.click();
       return;

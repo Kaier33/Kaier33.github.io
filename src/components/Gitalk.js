@@ -21,7 +21,6 @@ class GitalkComponent extends React.Component {
   render() {
     return (
       <div>
-        <p>每篇都有我啊aaaa </p>
         <div id="gitalk-container" />
       </div>
     )
