@@ -3,10 +3,7 @@ module.exports = {
     title: 'Kaier33',
     author: 'KaierChou',
     description: 'Personal blog by KaierChou.',
-    siteUrl: 'https://kaierchou.github.io',
-    social: {
-      twitter: '',
-    },
+    siteUrl: 'https://kaierchou.github.io'
   },
   pathPrefix: '/',
   plugins: [

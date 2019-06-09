@@ -74,9 +74,7 @@ class BlogPostTemplate extends React.Component {
       enSlug.length - 1
     // )}/index${lang === 'en' ? '' : '.' + lang}.md`;
     )}/index${lang === 'zh-hans' ? '' : '.' + lang}.md`;
-    const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
-      `https://overreacted.io${enSlug}`
-    )}`;
+    const discussUrl = `https://github.com/KaierChou/KaierChou.github.io`;
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
