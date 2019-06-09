@@ -1,0 +1,20 @@
+[
+  {
+    "fromPath": "/zh_TW/things-i-dont-know-as-of-2018/",
+    "isPermanent": true,
+    "redirectInBrowser": true,
+    "toPath": "/zh-hant/things-i-dont-know-as-of-2018/"
+  },
+  {
+    "fromPath": "/not-everything-should-be-a-hook/",
+    "isPermanent": true,
+    "redirectInBrowser": true,
+    "toPath": "/why-isnt-x-a-hook/"
+  },
+  {
+    "fromPath": "/making-setinterval-play-well-with-react-hooks/",
+    "isPermanent": true,
+    "redirectInBrowser": true,
+    "toPath": "/making-setinterval-declarative-with-react-hooks/"
+  }
+]
