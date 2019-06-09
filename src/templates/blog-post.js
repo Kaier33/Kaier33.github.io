@@ -28,64 +28,7 @@ class Translations extends React.Component {
     let readerTranslations = translations.filter(lang => lang !== 'ru');
     let hasRussianTranslation = translations.indexOf('ru') !== -1;
 
-    return (
-      <div className="translations">
-        <Panel style={{ fontFamily: systemFont }}>
-          {translations.length > 0 && (
-            <span>
-              {hasRussianTranslation && (
-                <span>
-                  Originally written in:{' '}
-                  {'en' === lang ? (
-                    <b>{codeToLanguage('en')}</b>
-                  ) : (
-                    <Link to={languageLink('en')}>English</Link>
-                  )}
-                  {' • '}
-                  {'ru' === lang ? (
-                    <b>Русский (авторский перевод)</b>
-                  ) : (
-                    <Link to={languageLink('ru')}>
-                      Русский (авторский перевод)
-                    </Link>
-                  )}
-                  <br />
-                  <br />
-                </span>
-              )}
-              <span>Translated by readers into: </span>
-              {readerTranslations.map((l, i) => (
-                <React.Fragment key={l}>
-                  {l === lang ? (
-                    <b>{codeToLanguage(l)}</b>
-                  ) : (
-                    <Link to={languageLink(l)}>{codeToLanguage(l)}</Link>
-                  )}
-                  {i === readerTranslations.length - 1 ? '' : ' • '}
-                </React.Fragment>
-              ))}
-            </span>
-          )}
-          {lang !== 'en' && (
-            <>
-              <br />
-              <br />
-              {lang !== 'ru' && (
-                <>
-                  <Link to={languageLink('en')}>Read the original</Link>
-                  {' • '}
-                  <a href={editUrl} target="_blank" rel="noopener noreferrer">
-                    Improve this translation
-                  </a>
-                  {' • '}
-                </>
-              )}
-              <Link to={`/${lang}`}>View all translated posts</Link>{' '}
-            </>
-          )}
-        </Panel>
-      </div>
-    );
+    return ('')
   }
 }
 
@@ -124,11 +67,13 @@ class BlogPostTemplate extends React.Component {
     loadFontsForCode(lang);
     // TODO: this curried function is annoying
     const languageLink = createLanguageLink(slug, lang);
-    const enSlug = languageLink('en');
+    // const enSlug = languageLink('en');
+    const enSlug = languageLink('zh-hans');
     const editUrl = `https://github.com/${GITHUB_USERNAME}/${GITHUB_REPO_NAME}/edit/master/src/pages/${enSlug.slice(
       1,
       enSlug.length - 1
-    )}/index${lang === 'en' ? '' : '.' + lang}.md`;
+    // )}/index${lang === 'en' ? '' : '.' + lang}.md`;
+    )}/index${lang === 'zh-hans' ? '' : '.' + lang}.md`;
     const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
       `https://overreacted.io${enSlug}`
     )}`;
