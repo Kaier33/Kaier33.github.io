@@ -7,6 +7,7 @@ import Bio from '../components/Bio';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import Panel from '../components/Panel';
+import Gitalk from '../components/Gitalk'
 import { formatPostDate, formatReadingTime } from '../utils/helpers';
 import { rhythm, scale } from '../utils/typography';
 import {
@@ -112,6 +113,7 @@ class BlogPostTemplate extends React.Component {
             </header>
             <div dangerouslySetInnerHTML={{ __html: html }} />
           </article>
+          <Gitalk />
         </main>
         <aside>
           <div
