@@ -12,10 +12,24 @@ class Layout extends React.Component {
     theme: null,
   };
   componentDidMount() {
+    // 乐色ie 
+    if (window.navigator.userAgent.indexOf("MSIE")>=1 || window.navigator.userAgent.indexOf('Edge') > -1) {
+      document.body.style.cursor = 'auto'
+    }
+
     this.setState({ theme: window.__theme });
     window.__onThemeChange = () => {
       this.setState({ theme: window.__theme });
     };
+
+    var normal_title = document.title;
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState == 'hidden') {
+        document.title = '(づ￣ 3￣)づ救救孩纸吧';
+      } else {
+        document.title = normal_title;
+      }
+    })
   }
   renderHeader() {
     const { location, title } = this.props;

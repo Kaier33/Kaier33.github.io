@@ -7,19 +7,11 @@ import React from 'react';
 import { Fragment } from 'react';
 import SEO from '../components/SEO';
 import get from 'lodash/get';
-import Star from '../components/Star';
+// import Star from '../components/Star';
 import { rhythm } from '../utils/typography';
 
 class BlogIndexTemplate extends React.Component {
   componentDidMount() {
-    var normal_title = document.title;
-    document.addEventListener('visibilitychange', function() {
-      if (document.visibilityState == 'hidden') {
-        document.title = '(づ￣ 3￣)づ救救孩纸吧';
-      } else {
-        document.title = normal_title;
-      }
-    })
 
     let isMobile = /Android|webOS|iPhone|iPad|BlackBerry/i.test(
       navigator.userAgent
@@ -166,17 +158,25 @@ class BlogIndexTemplate extends React.Component {
       })();
       let _width = document.documentElement.clientWidth;
       let half_height = document.documentElement.clientHeight / 2 + 50; // 半屏就好
+      let gatsbyDom = document.getElementById('___gatsby')
 
-      let MaskDom = document.createElement('div');
-      MaskDom.id = 'mask';
-      MaskDom.style.height = half_height + 'px';
 
-      let canvasDom = document.createElement('canvas');
-      canvasDom.id = 'starlight';
-      let gatsbyDom = document.getElementById('___gatsby');
 
-      document.body.insertBefore(canvasDom, gatsbyDom);
-      document.body.insertBefore(MaskDom, gatsbyDom);
+      let canvasDom = document.getElementById('starlight')
+      if (!canvasDom) {
+        canvasDom = document.createElement('canvas')
+        canvasDom.id = 'starlight'
+        document.body.insertBefore(canvasDom, gatsbyDom)
+      }
+      
+      let MaskDom = document.getElementById('mask')
+      if (!MaskDom) {
+        MaskDom = document.createElement('div')
+        MaskDom.id = 'mask'
+        MaskDom.style.height = half_height + 'px'
+        document.body.insertBefore(MaskDom, gatsbyDom);
+      }
+      
       gatsbyDom.children[0].children[0].style.background = 'transparent';
 
       initStar();

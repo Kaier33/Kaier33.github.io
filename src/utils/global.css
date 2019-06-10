@@ -1,6 +1,4 @@
-html {
-  cursor: url('../assets/cursor.ico'), auto;
-}
+
 #starlight {
   position: absolute;
   top: 0;
@@ -20,6 +18,7 @@ body {
   --pink: rgb(255, 167, 196);
   /* --pink: #4181FF; */
   background-color: var(--bg);
+  cursor: url('../assets/cursor.ico'), auto;
 }
 
 body.light {

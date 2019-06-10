@@ -52,10 +52,17 @@ export default class Toggle extends PureComponent {
     }
   }
   componentDidMount() {
-    if (this.input.checked) {
-      document.getElementById('mask').style.background = 'transparent'
+    window.__LightFlag = this.input.checked
+    if (window.__LightFlag) {
+      if (document.getElementById('mask')) {
+        document.getElementById('mask').style.background = 'transparent'
+      } 
+      // console.log('关灯状态')
     } else {
-      document.getElementById('mask').style.background = 'linear-gradient(-180deg, rgba(255, 255, 255, .1) 0, #fff 100%)'
+      // console.log('开灯状态')
+      if (document.getElementById('mask')) {
+        document.getElementById('mask').style.background = 'linear-gradient(-180deg, rgba(255, 255, 255, .1) 0, #fff 100%)'
+      }
     }
   }
 
@@ -64,10 +71,10 @@ export default class Toggle extends PureComponent {
     this.previouslyChecked = checkbox.checked;
     if (event.target !== checkbox && !this.moved) {
       event.preventDefault();
-      if (checkbox.checked) {
+      if (checkbox.checked && document.getElementById('mask')) {
         // console.log('开灯')
         document.getElementById('mask').style.background = 'linear-gradient(-180deg, rgba(255, 255, 255, .1) 0, #fff 100%)'
-      } else {
+      } else if (!checkbox.checked && document.getElementById('mask')){
         // console.log('关灯')
         document.getElementById('mask').style.background = 'transparent'
       }
