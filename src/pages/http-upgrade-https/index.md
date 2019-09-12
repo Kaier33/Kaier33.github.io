@@ -145,7 +145,7 @@ server {
 
 输入域名，正常情况下检测结果应为 A+ 。
 
-![result](./ssl.jpg)  
+![result](https://i.ibb.co/L570LFj/ssl.png)
 
 然后就阔以愉快的玩耍啦~
 <!-- [end](/thanks watch/) -->
