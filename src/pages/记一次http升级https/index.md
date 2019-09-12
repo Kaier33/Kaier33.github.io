@@ -4,15 +4,16 @@ date: '2019-09-12'
 spoiler: acme.sh可让全站点都支持HTTPS 🎉
 ---
 
-# CentOS 7 使用 acme.sh 自动申请免费 SSL 证书
+## CentOS 7 使用 acme.sh 自动申请免费 SSL 证书
 
-**安装**
+### 安装  
 
 1. ```curl https://get.acme.sh | sh``` 用于安装 acme.sh
 2. 安装完毕之后, 退出登录，再重新登录，或者执行一下 ```source ~/.bashrc```　
 3. ```acme.sh -v``` 可查看版本号
 ***
-**申请证书**
+
+### 申请证书  
 
 [How to use DNS API](https://github.com/Neilpang/acme.sh/blob/master/dnsapi/README.md)  找到自己的 DNS 服务商对应的命令，如阿里云的:  
 
@@ -32,7 +33,8 @@ acme.sh --issue --dns dns_ali -d kaier33.top -d *.kaier33.top
 + 阿里云用户安全组需要启用 443 端口
 
 ***
-**保存证书**    
+### 保存证书  
+
 1. 创建保存证书的目录：  
 ```
 # 换成自己的目录名称
@@ -48,20 +50,26 @@ acme.sh --install-cert -d kaier33.top \
 ```
 
 ***
-**自动更新 acme.sh**  
+
+### 自动更新 acme.sh  
+
 ```
 acme.sh --upgrade --auto-upgrade
 ```
 ***
-**nginx 配置**  
+
+### nginx 配置  
+
 1. 生成 DH 密钥参数
 ```
 # 换成自己保存证书的路径
 openssl dhparam 2048 -out /etc/nginx/ssl/dhparam.pem
 ```
 2. SSL 配置 ```vim /etc/nginx/conf.d/ssl.conf```  
-在 ```/etc/nginx/conf.d/``` 目录下创建 SSL 配置文件： 
+在 ```/etc/nginx/conf.d/``` 目录下创建 SSL 配置文件：  
+
 ```
+
 # certs sent to the client in SERVER HELLO are concatenated in ssl_certificate
 ssl_certificate /etc/nginx/ssl/fullchain.cer;
 ssl_certificate_key /etc/nginx/ssl/kaier33.top.key;
@@ -95,13 +103,15 @@ add_header X-Content-Type-Options nosniff;
 
 # hide nginx version
 server_tokens off;
+
 ```
+
 + `ssl_certificate` ，`ssl_certificate_key` ， `ssl_dhparam` 换成自己文件的路径。
 + 这种单独的配置文件将直接被 `nginx.conf` 加载，在 http 域下生效，所有 server 都共享相同的 SSL 配置。如果想每个 server 单独配置，则添加配置代码到对应的 server 域下面。  
 
 ***
 
-**Server配置**  
+### Server配置  
 
 在 `/etc/nginx/conf.d/` 目录下创建网站的配置文件：
 ```
@@ -129,14 +139,13 @@ server {
 
 ***
 
-**SSL 安全检测**  
-
+### SSL 安全检测
+  
 检测地址：https://www.ssllabs.com/ssltest/    
 
 输入域名，正常情况下检测结果应为 A+ 。
 
 ![result](./ssl.png)
 
-然后就阔以愉快的玩耍啦~ 
-
+然后就阔以愉快的玩耍啦~
 <!-- [end](/thanks watch/) -->
