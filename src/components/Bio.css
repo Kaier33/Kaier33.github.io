@@ -1,0 +1,7 @@
+.avatar {
+  transition: all 10s;
+}
+
+.avatar:hover {
+  transform: rotate(5turn);
+}

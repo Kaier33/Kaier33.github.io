@@ -1,6 +1,7 @@
 import React from 'react';
-import avatar from '../assets/02.png';
+import './Bio.css'
 import { rhythm } from '../utils/typography';
+
 
 class Bio extends React.Component {
   render() {
@@ -12,8 +13,9 @@ class Bio extends React.Component {
         }}
       >
         <img
-          src={avatar}
+          src={`https://avatars3.githubusercontent.com/u/24623866?s=460&v=4`}
           alt={`avatar`}
+          className="avatar"
           style={{
             marginRight: rhythm(1 / 2),
             marginBottom: 0,

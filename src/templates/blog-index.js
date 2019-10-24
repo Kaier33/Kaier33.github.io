@@ -12,7 +12,6 @@ import { rhythm } from '../utils/typography';
 
 class BlogIndexTemplate extends React.Component {
   componentDidMount() {
-
     let isMobile = /Android|webOS|iPhone|iPad|BlackBerry/i.test(
       navigator.userAgent
     );
@@ -56,12 +55,14 @@ class BlogIndexTemplate extends React.Component {
         };
 
         function init(canvas, w, h) {
+          // console.log('init')
           setting.canvas = document.getElementById(canvas);
           setting.canvas.setAttribute('width', w);
           setting.canvas.setAttribute('height', h);
           setting.width = w;
           setting.height = h;
           setting.content = setting.canvas.getContext('2d');
+          // setting.content.clearRect(0, 0, w, h);
         }
 
         function updateStar() {
@@ -158,27 +159,28 @@ class BlogIndexTemplate extends React.Component {
       })();
       let _width = document.documentElement.clientWidth;
       let half_height = document.documentElement.clientHeight / 2 + 50; // 半屏就好
-      let gatsbyDom = document.getElementById('___gatsby')
+      let gatsbyDom = document.getElementById('___gatsby');
 
-
-
-      let canvasDom = document.getElementById('starlight')
+      let canvasDom = document.getElementById('starlight');
       if (!canvasDom) {
-        canvasDom = document.createElement('canvas')
-        canvasDom.id = 'starlight'
-        document.body.insertBefore(canvasDom, gatsbyDom)
+        canvasDom = document.createElement('canvas');
+        canvasDom.id = 'starlight';
+        document.body.insertBefore(canvasDom, gatsbyDom);
       }
-      
-      let MaskDom = document.getElementById('mask')
+
+      let MaskDom = document.getElementById('mask');
       if (!MaskDom) {
-        MaskDom = document.createElement('div')
-        MaskDom.id = 'mask'
-        MaskDom.style.height = half_height + 'px'
+        MaskDom = document.createElement('div');
+        MaskDom.id = 'mask';
+        MaskDom.style.height = half_height + 'px';
         document.body.insertBefore(MaskDom, gatsbyDom);
       }
-      
-      gatsbyDom.children[0].children[0].style.background = 'transparent';
 
+      gatsbyDom.children[0].children[0].style.background = 'transparent';
+      // window.onresize = function() { //todo: 浏览器尺寸变动要适配
+      //   console.log(233);
+      //   initStar();
+      // };
       initStar();
       // // document.body.appendChild(canvasDom)
       // StarLight.init('starlight', _width, half_height);
