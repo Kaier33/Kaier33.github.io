@@ -22,7 +22,7 @@ class Star extends React.Component {
         maxStar: 30,
         newStar: 6,
         starArr: [],
-        number: 30
+        number: 30,
       };
 
       function init(canvas, w, h) {
@@ -126,10 +126,10 @@ class Star extends React.Component {
         set: set,
       };
     })();
-    let canvasDom = document.createElement('canvas')
-    canvasDom.id = 'starlight'
-    let temp = document.getElementById('___gatsby')
-    document.body.insertBefore(canvasDom, temp)
+    let canvasDom = document.createElement('canvas');
+    canvasDom.id = 'starlight';
+    let temp = document.getElementById('___gatsby');
+    document.body.insertBefore(canvasDom, temp);
     // document.body.appendChild(canvasDom)
     let _width = document.documentElement.clientWidth;
     let half_height = document.documentElement.clientHeight / 2 + 50; // 半屏就好
@@ -138,11 +138,7 @@ class Star extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        {/* <canvas id="starlight"></canvas> */}
-      </div>
-    );
+    return <div>{/* <canvas id="starlight"></canvas> */}</div>;
   }
 }
 export default Star;

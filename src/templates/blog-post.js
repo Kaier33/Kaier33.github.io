@@ -7,7 +7,7 @@ import Bio from '../components/Bio';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 // import Panel from '../components/Panel';
-import Gitalk from '../components/Gitalk'
+import Gitalk from '../components/Gitalk';
 import { formatPostDate, formatReadingTime } from '../utils/helpers';
 import { rhythm, scale } from '../utils/typography';
 import {
@@ -29,7 +29,7 @@ class Translations extends React.Component {
     let readerTranslations = translations.filter(lang => lang !== 'ru');
     let hasRussianTranslation = translations.indexOf('ru') !== -1;
 
-    return ('')
+    return '';
   }
 }
 
@@ -73,7 +73,7 @@ class BlogPostTemplate extends React.Component {
     const editUrl = `https://github.com/${GITHUB_USERNAME}/${GITHUB_REPO_NAME}/edit/master/src/pages/${enSlug.slice(
       1,
       enSlug.length - 1
-    // )}/index${lang === 'en' ? '' : '.' + lang}.md`;
+      // )}/index${lang === 'en' ? '' : '.' + lang}.md`;
     )}/index${lang === 'zh-hans' ? '' : '.' + lang}.md`;
     const discussUrl = `https://github.com/KaierChou/KaierChou.github.io`;
 
@@ -121,8 +121,7 @@ class BlogPostTemplate extends React.Component {
               margin: '90px 0 40px 0',
               fontFamily: systemFont,
             }}
-          >
-          </div>
+          ></div>
           <h3
             style={{
               fontFamily: 'Montserrat, sans-serif',

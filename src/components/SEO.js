@@ -52,9 +52,8 @@ function SEO({ meta, image, title, description, slug, lang = 'en' }) {
               {
                 property: 'og:description',
                 content: metaDescription,
-              }
-            ]
-            .concat(meta)}
+              },
+            ].concat(meta)}
           />
         );
       }}

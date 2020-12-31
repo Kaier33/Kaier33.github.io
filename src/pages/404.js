@@ -16,13 +16,13 @@ class NotFoundPage extends React.Component {
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullscreen
           /> */}
-          <iframe  
+          <iframe
             width="560"
-            height="315" 
-            src="//player.bilibili.com/player.html?aid=53437058&cid=93489702&page=1" 
-            scrolling="no" 
-            border="0" 
-            frameborder="no" 
+            height="315"
+            src="//player.bilibili.com/player.html?aid=53437058&cid=93489702&page=1"
+            scrolling="no"
+            border="0"
+            frameborder="no"
             framespacing="0"
             allowfullscreen="true"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

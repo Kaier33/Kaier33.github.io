@@ -12,9 +12,12 @@ class Layout extends React.Component {
     theme: null,
   };
   componentDidMount() {
-    // 乐色ie 
-    if (window.navigator.userAgent.indexOf("MSIE")>=1 || window.navigator.userAgent.indexOf('Edge') > -1) {
-      document.body.style.cursor = 'auto'
+    // 乐色ie
+    if (
+      window.navigator.userAgent.indexOf('MSIE') >= 1 ||
+      window.navigator.userAgent.indexOf('Edge') > -1
+    ) {
+      document.body.style.cursor = 'auto';
     }
 
     this.setState({ theme: window.__theme });
@@ -29,7 +32,7 @@ class Layout extends React.Component {
       } else {
         document.title = normal_title;
       }
-    })
+    });
   }
   renderHeader() {
     const { location, title } = this.props;
