@@ -1,7 +1,6 @@
 import React from 'react';
-import './Bio.css'
+import './Bio.css';
 import { rhythm } from '../utils/typography';
-
 
 class Bio extends React.Component {
   render() {
@@ -25,8 +24,8 @@ class Bio extends React.Component {
           }}
         />
         <p style={{ maxWidth: 310 }}>
-          Personal blog by{' '}
-          <a href="https://github.com/KaierChou">Kaier</a>.{' '} <br/>
+          Personal blog by <a href="https://github.com/Kaier33">Kaier</a>.{' '}
+          <br />
           Make a little little progress every day.
         </p>
       </div>

@@ -3,9 +3,9 @@
   "private": true,
   "description": "Kaier33",
   "version": "1.0.0",
-  "author": "KaierChou",
+  "author": "Kaier33",
   "bugs": {
-    "url": "https://github.com/KaierChou/KaierChou.github.io/issues"
+    "url": "https://github.com/Kaier33/Kaier33.github.io/issues"
   },
   "dependencies": {
     "gatsby": "^2.0.76",
@@ -46,7 +46,7 @@
     "gh-pages": "^1.2.0",
     "prettier": "^1.14.2"
   },
-  "homepage": "https://kaierchou.github.io",
+  "homepage": "https://kaier33.github.io",
   "license": "MIT",
   "scripts": {
     "dev": "gatsby develop",
