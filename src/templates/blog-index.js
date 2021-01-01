@@ -41,11 +41,13 @@ class BlogIndexTemplate extends React.Component {
     const star = new Star();
     this.setState({ canvasDom, star, maskDom }, () => {
       star.init(canvasDom, _width, half_height);
-      window.addEventListener('resize', this.handleResize.bind(this));
+      if (!this.isMobile()) {
+        window.addEventListener('resize', this.handleResize.bind(this));
+      }
     });
   }
   componentWillUnmount() {
-    if (this.isMobile()) {
+    if (!this.isMobile) {
       window.removeEventListener('resize', this.handleResize.bind(this));
     }
   }

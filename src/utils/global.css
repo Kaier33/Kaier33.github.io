@@ -1,12 +1,12 @@
 #starlight {
   position: absolute;
   top: 0;
-  z-index: -2;
+  z-index: -3;
 }
 #mask {
   position: absolute;
   top: 0;
-  z-index: -1;
+  z-index: -2;
   display: block;
   width: 100vw;
   height: 100%;

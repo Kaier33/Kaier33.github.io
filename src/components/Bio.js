@@ -1,7 +1,7 @@
 import React from 'react';
 import './Bio.css';
 import { rhythm } from '../utils/typography';
-
+import avatar from '../assets/tifa.png';
 class Bio extends React.Component {
   render() {
     return (
@@ -12,7 +12,7 @@ class Bio extends React.Component {
         }}
       >
         <img
-          src={`https://avatars3.githubusercontent.com/u/24623866?s=460&v=4`}
+          src={avatar}
           alt={`avatar`}
           className="avatar"
           style={{
@@ -26,7 +26,7 @@ class Bio extends React.Component {
         <p style={{ maxWidth: 310 }}>
           Personal blog by <a href="https://github.com/Kaier33">Kaier</a>.{' '}
           <br />
-          Make a little little progress every day.
+          Make a little little bit progress every day.
         </p>
       </div>
     );
