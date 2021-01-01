@@ -1,144 +1,115 @@
-import React from 'react';
+export default class Star {
+  constructor() {
+    this.setting = {
+      width: screen.width,
+      height: screen.height,
+      canvas: null,
+      content: null,
+      maxStar: 40,
+      newStar: 8,
+      starArr: [],
+      number: 40,
+      timer: null,
+    };
+    this.starColor = ['#0d4b74', '#6691ab', '#213a55', '#bed0cb', '#7f486b'];
+    this.animate = null;
+  }
 
-class Star extends React.Component {
-  componentDidMount() {
-    const StarLight = (function() {
-      const colors = [
-        ['#b03941', '#843f43', '#c56077', '#f27c73', '#e6c4c1'], //orange pink
-        ['#74af9d', '#6dd2c5', '#b3c3c3', '#c1cec4', '#cdeeed'], //green blue
-        ['#599af5', '#375aa6', '#2c3c6c', '#54478f', '#090b18'], //purple blue
-        ['#0d4b74', '#6691ab', '#213a55', '#bed0cb', '#7f486b'], //pink blue
-        ['#642329', '#671b23', '#984d4a', '#6d4f40', '#251a19'], //dark pink
-        ['#402b21', '#966a57', '#934a3f', '#24201c', '#d1987e'], //dark orange
-        ['#161114', '#333433', '#424348', '#9d9d97', '#ababaa'], //dark grey
-        ['#27424d', '#344243', '#364143', '#203f49', '#021623'], //dark blue
-      ];
-      const color = colors[Math.floor(Math.random() * 8)];
-      const setting = {
-        width: screen.width,
-        height: screen.height,
-        canvas: null,
-        content: null,
-        maxStar: 30,
-        newStar: 6,
-        starArr: [],
-        number: 30,
-      };
+  init(canvasDom, w, h) {
+    let { starArr, width, height } = this.setting;
+    if (this.isMobile()) {
+      this.setting.maxStar = 10;
+      this.setting.number = 10;
+      this.setting.newStar = 6;
+    }
+    starArr = [];
+    this.setting.canvas = canvasDom;
+    this.setting.canvas.setAttribute('width', w);
+    this.setting.canvas.setAttribute('height', h);
+    width = w;
+    height = h;
+    this.setting.content = this.setting.canvas.getContext('2d');
+    this.setting.content.clearRect(0, 0, w, h);
+    this.star();
+  }
 
-      function init(canvas, w, h) {
-        setting.canvas = document.getElementById(canvas);
-        setting.canvas.setAttribute('width', w);
-        setting.canvas.setAttribute('height', h);
-        setting.width = w;
-        setting.height = h;
-        setting.content = setting.canvas.getContext('2d');
+  updateStar() {
+    let { starArr, width, height, content } = this.setting;
+    content.clearRect(0, 0, width, height);
+    content.save();
+    for (let i = 0; i < starArr.length; i++) {
+      let h = 0.35 * starArr[i].scale;
+      starArr[i].x += (Math.tan((starArr[i].deg * Math.PI) / 180) * h) / 2;
+      starArr[i].y = starArr[i].y + h;
+      if (starArr[i].x < 0 || starArr[i].x > width || starArr[i].y > height) {
+        starArr.splice(i--, 1);
+        continue;
       }
-
-      function updateStar() {
-        setting.content.clearRect(0, 0, setting.width, setting.height);
-        setting.content.save();
-        for (let i = 0; i < setting.starArr.length; i++) {
-          let h = 0.35 * setting.starArr[i].scale;
-          setting.starArr[i].x +=
-            (Math.tan((setting.starArr[i].deg * Math.PI) / 180) * h) / 2;
-          setting.starArr[i].y = setting.starArr[i].y + h;
-
-          if (
-            setting.starArr[i].x < 0 ||
-            setting.starArr[i].x > setting.width ||
-            setting.starArr[i].y > setting.height
-          ) {
-            setting.starArr.splice(i--, 1);
-            continue;
-          }
-
-          setting.content.beginPath();
-          for (let j = 0; j < 5; j++) {
-            setting.content.lineTo(
-              Math.cos(((18 + j * 72) / 180) * Math.PI) * 10 +
-                setting.starArr[i].x,
-              -Math.sin(((18 + j * 72) / 180) * Math.PI) * 10 +
-                setting.starArr[i].y
-            );
-            setting.content.lineTo(
-              Math.cos(((54 + j * 72) / 180) * Math.PI) * 5 +
-                setting.starArr[i].x,
-              -Math.sin(((54 + j * 72) / 180) * Math.PI) * 5 +
-                setting.starArr[i].y
-            );
-          }
-          setting.content.closePath();
-          setting.content.globalAlpha = setting.starArr[i].alpha;
-          setting.content.shadowOffsetX = 2;
-          setting.content.shadowOffsetY = 2;
-          setting.content.shadowBlur = 4;
-          setting.content.shadowColor = 'rgba(0, 0, 0, 0.15)';
-          setting.content.fillStyle = color[setting.starArr[i].c];
-          setting.content.fill();
-        }
-        setting.content.restore();
-        window.requestAnimationFrame(updateStar);
+      content.beginPath();
+      for (let j = 0; j < 5; j++) {
+        content.lineTo(
+          Math.cos(((18 + j * 72) / 180) * Math.PI) * 10 + starArr[i].x,
+          -Math.sin(((18 + j * 72) / 180) * Math.PI) * 10 + starArr[i].y
+        );
+        content.lineTo(
+          Math.cos(((54 + j * 72) / 180) * Math.PI) * 5 + starArr[i].x,
+          -Math.sin(((54 + j * 72) / 180) * Math.PI) * 5 + starArr[i].y
+        );
       }
+      content.closePath();
+      content.globalAlpha = starArr[i].alpha;
+      content.shadowOffsetX = 2;
+      content.shadowOffsetY = 2;
+      content.shadowBlur = 4;
+      content.shadowColor = 'rgba(0, 0, 0, 0.15)';
+      content.fillStyle = this.starColor[starArr[i].c];
+      content.fill();
+    }
+    content.restore();
+    this.animate = requestAnimationFrame(this.updateStar.bind(this));
+  }
 
-      function createNewStar() {
-        setTimeout(function() {
-          if (setting.starArr.length < setting.maxStar) {
-            for (let i = 0; i < setting.newStar; i++) {
-              let minus = Math.random() < 0.5 ? -1 : 1;
-              setting.starArr.push({
-                x: Math.random() * setting.width,
-                y: 0,
-                c: Math.floor(Math.random() * 6),
-                deg: Math.random() * 6 * minus,
-                scale: 3 + Math.random() * 3,
-                alpha: 0.5 + Math.random() * 0.1,
-              });
-            }
-          }
-          createNewStar();
-        }, Math.random() * 200 + 500);
-      }
-
-      function star() {
-        for (let i = 0; i < setting.number; i++) {
+  createNewStar() {
+    let { starArr, maxStar, newStar, width } = this.setting;
+    this.setting.timer = setInterval(function() {
+      if (starArr.length < maxStar) {
+        for (let i = 0; i < newStar; i++) {
           let minus = Math.random() < 0.5 ? -1 : 1;
-          setting.starArr.push({
-            x: Math.random() * setting.width,
-            y: Math.random() * setting.height,
+          starArr.push({
+            x: Math.random() * width,
+            y: 0,
             c: Math.floor(Math.random() * 6),
             deg: Math.random() * 6 * minus,
             scale: 3 + Math.random() * 3,
             alpha: 0.5 + Math.random() * 0.1,
           });
         }
-        updateStar();
-        createNewStar();
       }
-
-      function set(num, maxStar, newStar) {
-        setting.num = num;
-        setting.maxStar = maxStar;
-        setting.newStar = newStar;
-      }
-      return {
-        init: init,
-        star: star,
-        set: set,
-      };
-    })();
-    let canvasDom = document.createElement('canvas');
-    canvasDom.id = 'starlight';
-    let temp = document.getElementById('___gatsby');
-    document.body.insertBefore(canvasDom, temp);
-    // document.body.appendChild(canvasDom)
-    let _width = document.documentElement.clientWidth;
-    let half_height = document.documentElement.clientHeight / 2 + 50; // 半屏就好
-    StarLight.init('starlight', _width, half_height);
-    StarLight.star();
+    }, Math.random() * 200 + 500);
   }
 
-  render() {
-    return <div>{/* <canvas id="starlight"></canvas> */}</div>;
+  star() {
+    let { number, width, height, starArr } = this.setting;
+    for (let i = 0; i < number; i++) {
+      let minus = Math.random() < 0.5 ? -1 : 1;
+      starArr.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        c: Math.floor(Math.random() * 6),
+        deg: Math.random() * 6 * minus,
+        scale: 3 + Math.random() * 3,
+        alpha: 0.5 + Math.random() * 0.1,
+      });
+    }
+    this.updateStar();
+    this.createNewStar();
+  }
+  reset() {
+    clearInterval(this.setting.timer);
+    this.setting.starArr = [];
+    cancelAnimationFrame(this.animate);
+  }
+  isMobile() {
+    return /Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent);
   }
 }
-export default Star;
