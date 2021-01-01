@@ -23,7 +23,7 @@ class Bio extends React.Component {
             borderRadius: '50%',
           }}
         />
-        <p style={{ maxWidth: 310 }}>
+        <p style={{ maxWidth: 320 }}>
           Personal blog by <a href="https://github.com/Kaier33">Kaier</a>.{' '}
           <br />
           Make a little little bit progress every day.
