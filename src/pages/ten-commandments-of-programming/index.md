@@ -67,6 +67,11 @@ Don't be the guy coding in the dark office emerging only to buy cola. The guy in
 As much as possible, make all of your comments positive and oriented to improving the code. Relate comments to local standards, program specs, increased performance, etc.
 
 
+#### Referencing :
+[程序员的谦逊编程](https://www.cnxct.com/%e7%a8%8b%e5%ba%8f%e5%91%98%e7%9a%84%e8%b0%a6%e9%80%8a%e7%bc%96%e7%a8%8b)
+
+<!-- [end](/thanks watch/) -->
+
 
 
 
