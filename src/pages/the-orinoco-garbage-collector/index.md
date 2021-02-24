@@ -1,7 +1,7 @@
 ---
 title: The Orinoco Garbage Collector
 date: '2021-02-07'
-spoiler:  V8的垃圾回收器--Orinoco” 
+spoiler:  V8的垃圾回收器 -- Orinoco
 ---
 
 V8中的堆被划分为不同的区域：<br/>
