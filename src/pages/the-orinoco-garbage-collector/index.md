@@ -11,7 +11,7 @@ V8中的堆被划分为不同的区域：<br/>
 对象首先分配到nursery(幼生代)，如果它们能在下一次GC中存活下来，则会被移动到intermediate(中间代)，如果它们在再次从GC中存活下来，就会被移到old generation(老生代)中去。
 
 <div align="center">
-  <img src="https://i.ibb.co/gW87MnK/gc-01.png" />
+  <img src="https://v8.dev/_img/trash-talk/02.svg" />
 </div>
 
 ---
@@ -22,7 +22,7 @@ V8中有两个垃圾收集器：<br/>
 
 ## Major GC (Full Mark-Compact)
 <div align="center">
-  <img style="margin-bottom: 0px" src="https://i.ibb.co/5r4yyd2/gc-02.png" />
+  <img style="margin-bottom: 0px" src="https://v8.dev/_img/trash-talk/01.svg" />
   <span style="color: #666; font-size: 14px">主GC分为三个阶段：标记，清除和整理。</span>
 </div>
 
@@ -47,7 +47,7 @@ evacuation步骤将所有存活的对象移动到一个连续的内存块中（�
 <p>
 
 <div align="center">
-  <img style="margin-bottom: 0px" src="https://i.ibb.co/NF5X8pK/gc-03.png" />
+  <img style="margin-bottom: 0px" src="https://v8.dev/_img/trash-talk/03.svg" />
   <span style="color: #666; font-size: 14px">次GC移动活动对象到一个新的内存页</span>
 </div>
 
@@ -55,7 +55,7 @@ evacuation步骤将所有存活的对象移动到一个连续的内存块中（�
 <p>清除的最后一步是更新引用已移动的原始对象的指针。每个复制的对象都会留下一个转发地址，用于将原始指针更新为指向新位置。</p>
 
 <div align="center">
-  <img style="margin-bottom: 0px" src="https://i.ibb.co/QvyrPXB/gc-04.png" />
+  <img style="margin-bottom: 0px" src="https://v8.dev/_img/trash-talk/04.svg" />
   <span style="color: #666; font-size: 14px">次GC将活跃对象移动到老生代</span>
 </div>
 
