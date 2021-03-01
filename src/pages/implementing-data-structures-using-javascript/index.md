@@ -1,7 +1,7 @@
 ---
 title: Implementing Data Structures Using JavaScript
 date: '2021-01-11'
-spoiler:  用JS实现常见的数据结构：栈、队列、链表、散列表
+spoiler: JS实现常见的数据结构：栈、队列、链表、散列表
 ---
 
 <div align="center">
