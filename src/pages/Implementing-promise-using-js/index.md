@@ -29,7 +29,7 @@ Promise.resolve(1)
 
 ```javascript
 
-// 根据Promise/A+对States的定义, 我们先声明其三个状态: 
+// 根据Promise/A+对status的定义, 我们先声明其三个状态: 
 const PENDING = 'PENDING'
 const FULFILLED = 'FULFILLED'
 const REJECTED = 'REJECTED'
