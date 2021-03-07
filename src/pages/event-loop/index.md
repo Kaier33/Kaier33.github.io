@@ -15,14 +15,14 @@ spoiler:  JS的事件循环以及异步队列
 
 因此，在浏览器中定义了一个等待进程响应的超时任务。当进程在超时中没有响应时，你将看到一个弹出窗口，询问是否终止这个页面。
 <div align = "center">
-  <img src="https://i.ibb.co/QNY2TGx/killPage.jpg" />
+  <img src="https://user-images.githubusercontent.com/24623866/110242056-2869b800-7f8f-11eb-9951-b4aeacb825bb.jpg" />
 </div>
 
 > 关于 Web Worker, 虽然运行 JavaScript 脚本创建多个线程, 但是子线程完全受主线程控制, 且不得操作DOM, 所以这个新标准没有改变JavaScript单线程的本质。
 
 ## JavaScript runtime engine
 <div align = "center">
-  <img src="https://i.ibb.co/s39YRy8/js.png" />
+  <img src="https://user-images.githubusercontent.com/24623866/110242057-299ae500-7f8f-11eb-9c08-f3a5c5a3baea.png" />
 </div>
 
 > JS内存空间  

@@ -5,7 +5,7 @@ spoiler: JS实现常见的数据结构：栈、队列、链表、散列表
 ---
 
 <div align="center">
-  <img src="https://i.ibb.co/vvTcjDd/know-your-javascript-data-structures-nocdn.jpg" />
+  <img src="https://user-images.githubusercontent.com/24623866/110242216-015fb600-7f90-11eb-9b09-4ac270eb4786.jpg" />
 </div>
 理解数据结构在编程的各个方面都是有帮助的, 尤其是涉及到算法方面的话, 那数据结构可谓就是前置技能点了。<br/>
 本文将用js来实现常见的数据结构, 废话不多说, 直接开始吧~
@@ -13,7 +13,7 @@ spoiler: JS实现常见的数据结构：栈、队列、链表、散列表
 
 ## Stack
 <div align="center">
-  <img src="https://i.ibb.co/WDJg5kG/stack.png" />
+  <img src="https://user-images.githubusercontent.com/24623866/110241963-b5604180-7f8e-11eb-8048-3ba1fbcf9c7a.png" />
 </div>
 
 **栈**是一种遵从**先进后出(first in last out, FILO)**原则的有序集合。新添加或待删除的元素都保存在栈的同一端, 称作栈顶,另一端就叫栈底。  
@@ -72,7 +72,7 @@ class Stack {
 
 ## Queue
 <div align="center">
-  <img src="https://i.ibb.co/3msTRxC/queue.png" />
+  <img src="https://user-images.githubusercontent.com/24623866/110241980-cb6e0200-7f8e-11eb-875e-09498beb8215.png" />
 </div>
 
 **队列**是遵循**先进先出(first in first out, FIFO)**原则的一组有序的项。队列在尾部添加新元素, 并从顶部移除元素。最新添加的元素必须排在队列的末尾。
@@ -126,7 +126,7 @@ class Queue {
 
 ### Linked List
 <div align="center">
-  <img src="https://i.ibb.co/Jjw5SwH/linked-list.png" />
+  <img src="https://user-images.githubusercontent.com/24623866/110241986-cf9a1f80-7f8e-11eb-80e3-ad33aba2eccf.png" />
 </div>
 
 **链表**存储有序的元素集合, 但不同于数组, 链表中的元素在内存中并不是连续放置的。每个元素由一个存储元素本身的节点和一个指向下一个元素的引用(也称指针或链接)组成。
@@ -241,7 +241,7 @@ class LinkedList {
 
 ### Hash Table
 <div align="center">
-  <img src="https://i.ibb.co/bRcC020/hash-table.png" />
+  <img src="https://user-images.githubusercontent.com/24623866/110241995-d45ed380-7f8e-11eb-9b80-c370e18b1bcd.png" />
 </div>
 
 **哈希表**,是根据关键码值而直接进行访问的数据结构。  
