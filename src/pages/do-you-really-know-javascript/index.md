@@ -172,7 +172,7 @@ values.map(isSane);
 // =>  [true, true, true, false, false] 
 ```
 
--9 % 2 返回的还会是负数 -1, Infinity % 2 为 NaN; 所为后面2个是false
+-9 % 2 返回的还会是负数 -1, Infinity % 2 为 NaN; 所以后面2个是false
 
 ***
 12. 
@@ -183,7 +183,7 @@ parseInt(3, 0)
 
 // => 3, NaN, 3
 ```
-除了“0、1”外，其它数字都不是有效二进制数字，所为第二个为 NaN , 那么0呢? <br/>
+除了“0、1”外，其它数字都不是有效二进制数字，所以第二个为 NaN , 那么0呢? <br/>
 parseInt将考虑一个伪基数，并假设您指的是10，因此返回3。
 
 ***
@@ -285,7 +285,7 @@ x();
 
 // VM2952:1 Uncaught TypeError: Cannot convert undefined or null to object
 ```
-我猜这道题本来想考察this指向的问题.. 旧一点的浏览器会返回window, 现在是直接报错~
+我猜这道题本来想考察this指向的问题.. 旧一点的浏览器会返回window, 现在是直接报错
 
 ***
 
